@@ -1,0 +1,38 @@
+<%= form_with model: @sermon, local: true do |form| %>
+
+  <% if @sermon.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@sermon.errors.count, "error") %> prohibited
+        this sermon from being saved:
+      </h2>
+      <ul>
+        <% @sermon.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %><br>
+  </p>
+
+  <p>
+    <%= form.label :date %><br>
+    <%= form.datetime_select :date %>
+  </p>
+
+  <button>Upload image</button>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

@@ -1,0 +1,22 @@
+<h2>All Sermons</h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @sermons.each do |s| %>
+    <tr>
+      <td><%= s.title %></td>
+      <td><%= s.description %></td>
+      <td><%= s.date %></td>
+      <td><%= link_to 'Show', sermon_path(s) %></td>
+      <td><%= link_to 'Edit', edit_sermon_path(s) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= button_to 'Add sermon', new_sermon_path, method: :get %>
