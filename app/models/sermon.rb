@@ -6,15 +6,21 @@ class Sermon < ApplicationRecord
   has_attached_file :image, styles: { thumb: "200x200>", medium: "500x500>" }, default_url: "missing.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
+  before_create :capitalize_title
+
+  def capitalize_title
+    self.title = title.capitalize
+  end
+
   def display_date
-    return self.date.strftime("%B %-d, %Y %l:%M %p")
+    self.date.strftime("%B %-d, %Y %l:%M %p")
   end
 
   def image_url(size)
     if self.series and self.image.url == 'missing.jpg'
-      return self.series.image.url(size)
+      self.series.image.url(size)
     else
-      return self.image.url(size)
+      self.image.url(size)
     end
   end
 end

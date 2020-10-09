@@ -17,7 +17,7 @@
           <%= image_tag s.image_url(:thumb) %>
         <% end %>
       </td>
-      <td><strong><%= link_to s.title, s %></strong></td>
+      <td class="sermon-title"><strong><%= link_to s.title, s %></strong></td>
       <td><%= s.description.truncate(250) %></td>
       <td><%= s.display_date %></td>
       <% if local_assigns[:index] %>
