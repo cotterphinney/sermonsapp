@@ -1,6 +1,6 @@
 class SermonsController < ApplicationController
   def index
-    @sermons = Sermon.all
+    @sermons = Sermon.all.includes(:series)
   end
 
   def show
@@ -44,6 +44,6 @@ class SermonsController < ApplicationController
 
   private
   def sermon_params
-    params.require(:sermon).permit(:title, :description, :date)
+    params.require(:sermon).permit(:title, :description, :date, :image, :series_id)
   end
 end

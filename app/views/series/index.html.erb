@@ -1,0 +1,10 @@
+<h2>All Series</h2>
+
+<% @series.each do |s| %>
+  <li>
+    <span><%= s.title %><%= image_tag s.image.url(:thumb) %></span>
+    <%= link_to 'View', s %>
+  </li>
+<% end %>
+
+<%= button_to 'Add series', new_series_path, method: :get %>

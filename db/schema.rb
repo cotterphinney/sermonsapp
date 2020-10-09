@@ -10,14 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_053735) do
+ActiveRecord::Schema.define(version: 2020_10_08_081655) do
+
+  create_table "series", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "sermons", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "date"
+    t.integer "series_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["series_id"], name: "index_sermons_on_series_id"
   end
 
+  add_foreign_key "sermons", "series"
 end

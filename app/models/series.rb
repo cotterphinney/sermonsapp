@@ -1,5 +1,5 @@
-class Sermon < ApplicationRecord
-  belongs_to :series
+class Series < ApplicationRecord
+  has_many :sermons
   validates :title, presence: true,
                     length: {minimum: 3, maximum: 200}
 

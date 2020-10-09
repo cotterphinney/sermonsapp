@@ -29,7 +29,12 @@
     <%= form.datetime_select :date %>
   </p>
 
-  <button>Upload image</button>
+  <p>
+    <%= form.label :series %><br>
+    <%= form.collection_select(:series_id, Series.all, :id, :title) %>
+  </p>
+
+  <%= form.file_field :image %>
 
   <p>
     <%= form.submit %>

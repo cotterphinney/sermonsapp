@@ -1,10 +1,14 @@
 <h2><%= @sermon.title %></h2>
 
-<%= button_to 'Edit sermon', edit_sermon_path(@sermon), method: :get %>
+<%= link_to 'Edit sermon', edit_sermon_path(@sermon) %>
 
 <p>
   <strong>Description: </strong>
   <%= @sermon.description %>
+</p>
+
+<p>
+  <%= image_tag @sermon.image.url(:medium) %>
 </p>
 
 <p>
