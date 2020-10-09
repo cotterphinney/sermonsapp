@@ -5,6 +5,7 @@ class SeriesController < ApplicationController
 
   def show
     @series = Series.find(params[:id])
+    @sermons = @series.sermons
   end
 
   def new

@@ -1,11 +1,14 @@
 <h2><%= @series.title %></h2>
 
-<%= link_to 'Edit series', edit_series_path(@series) %><br>
-<%= link_to 'Delete series', series_path(@series),
-            method: :delete,
-            data: { confirm: 'Are you sure you want to delete this series?' }
-%><br>
+<p>
+  <%= image_tag @series.image.url(:medium) %><br>
+</p>
 
-<%= image_tag @series.image.url(:medium) %><br>
+<p>
+  <%= link_to 'Edit series', edit_series_path(@series), class: 'btn btn-primary' %>
+</p>
 
-<%= link_to 'Back', series_index_path %>
+<% if @series.sermons.length > 0 %>
+  <h3>Associated sermons:</h3>
+  <%= render 'sermons/sermons_table' %>
+<% end %>

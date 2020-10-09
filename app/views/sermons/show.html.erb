@@ -1,6 +1,8 @@
 <h2><%= @sermon.title %></h2>
 
-<%= link_to 'Edit sermon', edit_sermon_path(@sermon) %>
+<p>
+  <%= image_tag @sermon.image.url(:medium) %>
+</p>
 
 <p>
   <strong>Description: </strong>
@@ -8,18 +10,14 @@
 </p>
 
 <p>
-  <%= image_tag @sermon.image.url(:medium) %>
+  <strong>Date: </strong>
+  <%= @sermon.display_date %>
 </p>
 
-<p>
-  <strong>Sermon date: </strong>
-  <%= @sermon.date %>
-</p>
+<% if @sermon.series %>
+  <p>
+    Part of series: <%= link_to @sermon.series.title, @sermon.series %>
+  </p>
+<% end %>
 
-<%= link_to 'Delete sermon', sermon_path(@sermon),
-            method: :delete,
-            data: { confirm: 'Are you sure you want to delete this sermon?' }%>
-
-<br>
-
-<%= link_to 'Back', sermons_path %>
+<%= link_to 'Edit sermon', edit_sermon_path(@sermon), class: 'btn btn-primary' %>

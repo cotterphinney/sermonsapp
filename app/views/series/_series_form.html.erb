@@ -19,9 +19,11 @@
     <%= form.text_field :title %>
   </p>
 
-  <%= form.file_field :image %>
+  <p>
+    <%= form.file_field :image %>
+  </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-success' %>
   </p>
 <% end %>

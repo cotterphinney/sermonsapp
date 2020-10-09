@@ -1,10 +1,17 @@
-<h2>All Series</h2>
+<h2>Series</h2>
+
+<p>
+  <%= link_to 'Add series', new_series_path, class: 'btn btn-primary' %>
+</p>
 
 <% @series.each do |s| %>
   <li>
-    <span><%= s.title %><%= image_tag s.image.url(:thumb) %></span>
-    <%= link_to 'View', s %>
+    <span>
+      <%= link_to s do %>
+        <%= image_tag s.image.url(:thumb) %>
+      <% end %>
+
+      <%= link_to s.title, s %>
+    </span>
   </li>
 <% end %>
-
-<%= button_to 'Add series', new_series_path, method: :get %>

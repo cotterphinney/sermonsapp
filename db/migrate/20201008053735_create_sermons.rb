@@ -4,7 +4,7 @@ class CreateSermons < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :description
       t.datetime :date
-      t.references :series, null: false, foreign_key: true
+      t.belongs_to :series
 
       t.timestamps
     end

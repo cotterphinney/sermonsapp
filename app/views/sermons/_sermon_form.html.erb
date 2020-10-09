@@ -34,10 +34,12 @@
     <%= form.collection_select(:series_id, Series.all, :id, :title) %>
   </p>
 
-  <%= form.file_field :image %>
+  <p>
+    <%= form.file_field :image %>
+  </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-success' %>
   </p>
 
 <% end %>

@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date</th>
+    <% if local_assigns[:index] %>
+      <th>Series</th>
+    <% end %>
+    <th></th>
+  </tr>
+
+  <% @sermons.each do |s| %>
+    <tr>
+      <td>
+        <%= link_to s do %>
+          <%= image_tag s.image.url(:thumb) %>
+        <% end %>
+      </td>
+      <td><strong><%= link_to s.title, s %></strong></td>
+      <td><%= s.description.truncate(250) %></td>
+      <td><%= s.display_date %></td>
+      <% if local_assigns[:index] %>
+        <td><%= s.series.title if s.series %></td>
+      <% end %>
+      <td><%= link_to 'View', sermon_path(s) %></td>
+    </tr>
+  <% end %>
+</table>

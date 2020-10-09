@@ -10,6 +10,21 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'Series', series_index_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sermons', sermons_path, class: 'nav-link' %>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>

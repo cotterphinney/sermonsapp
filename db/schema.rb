@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_10_08_081655) do
     t.string "title"
     t.text "description"
     t.datetime "date"
-    t.integer "series_id", null: false
+    t.integer "series_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_file_name"
@@ -36,5 +36,4 @@ ActiveRecord::Schema.define(version: 2020_10_08_081655) do
     t.index ["series_id"], name: "index_sermons_on_series_id"
   end
 
-  add_foreign_key "sermons", "series"
 end
