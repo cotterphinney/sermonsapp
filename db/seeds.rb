@@ -9,8 +9,7 @@
 Series.destroy_all
 Sermon.destroy_all
 
-ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'sermons'")
-ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'series'")
+ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name IN ('sermons', 'series')")
 
 def seed_image(file_name)
   File.open(File.join("#{Rails.root}/app/assets/images/#{file_name}"))

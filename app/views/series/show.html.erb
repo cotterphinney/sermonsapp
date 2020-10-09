@@ -1,11 +1,11 @@
 <h2><%= @series.title %></h2>
 
 <p>
-  <%= image_tag @series.image.url(:medium) %><br>
+  <%= link_to 'Edit series', edit_series_path(@series), class: 'btn btn-primary' %>
 </p>
 
 <p>
-  <%= link_to 'Edit series', edit_series_path(@series), class: 'btn btn-primary' %>
+  <%= image_tag @series.image.url(:medium) %><br>
 </p>
 
 <% if @series.sermons.length > 0 %>

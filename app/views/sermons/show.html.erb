@@ -1,6 +1,10 @@
 <h2><%= @sermon.title %></h2>
 
 <p>
+  <%= link_to 'Edit sermon', edit_sermon_path(@sermon), class: 'btn btn-primary' %>
+</p>
+
+<p>
   <%= image_tag @sermon.image.url(:medium) %>
 </p>
 
@@ -19,5 +23,3 @@
     Part of series: <%= link_to @sermon.series.title, @sermon.series %>
   </p>
 <% end %>
-
-<%= link_to 'Edit sermon', edit_sermon_path(@sermon), class: 'btn btn-primary' %>

@@ -1,7 +1,7 @@
 <h2>Series</h2>
 
 <p>
-  <%= link_to 'Add series', new_series_path, class: 'btn btn-primary' %>
+  <%= link_to 'Add series', new_series_path, class: 'btn btn-success' %>
 </p>
 
 <% @series.each do |s| %>
@@ -12,6 +12,8 @@
       <% end %>
 
       <%= link_to s.title, s %>
+
+      <%= link_to 'View', s, class: 'btn btn-primary' %>
     </span>
   </li>
 <% end %>

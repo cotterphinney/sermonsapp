@@ -21,9 +21,9 @@
       <td><%= s.description.truncate(250) %></td>
       <td><%= s.display_date %></td>
       <% if local_assigns[:index] %>
-        <td><%= s.series.title if s.series %></td>
+        <td><%= s.series ? s.series.title : '--' %></td>
       <% end %>
-      <td><%= link_to 'View', sermon_path(s) %></td>
+      <td><%= link_to 'View', sermon_path(s), class: 'btn btn-primary' %></td>
     </tr>
   <% end %>
 </table>
