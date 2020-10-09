@@ -9,6 +9,7 @@
 
 *.DS_Store
 public/system/series/images/*
+public/system/sermons/images/*
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
