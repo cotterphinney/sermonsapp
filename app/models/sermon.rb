@@ -9,4 +9,12 @@ class Sermon < ApplicationRecord
   def display_date
     return self.date.strftime("%B %-d, %Y %l:%M %p")
   end
+
+  def image_url(size)
+    if self.series and self.image.url == 'missing.jpg'
+      return self.series.image.url(size)
+    else
+      return self.image.url(size)
+    end
+  end
 end

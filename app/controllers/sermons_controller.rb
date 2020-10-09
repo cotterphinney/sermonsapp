@@ -1,6 +1,6 @@
 class SermonsController < ApplicationController
   def index
-    @sermons = Sermon.all.includes(:series)
+    @sermons = Sermon.includes(:series).paginate(page: params[:page], per_page: 10)
   end
 
   def show
