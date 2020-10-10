@@ -1,5 +1,5 @@
 class Sermon < ApplicationRecord
-  belongs_to :series
+  belongs_to :series, optional: true
   validates :title, presence: true,
                     length: {minimum: 3, maximum: 200}
 
@@ -13,7 +13,7 @@ class Sermon < ApplicationRecord
   end
 
   def display_date
-    self.date.strftime("%B %-d, %Y %l:%M %p")
+    self.date ? self.date.strftime("%B %-d, %Y %l:%M %p") : ''
   end
 
   def image_url(size)
